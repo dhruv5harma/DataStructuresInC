@@ -13,15 +13,13 @@ int* createArray(int size) {
 
 void display(struct Array arr) {
 	int i;
-	printf("[");
 	for (i = 0; i < arr.length; i++) {
 		printf(" %d ", arr.A[i]);
 	}
-	printf("]");
 }
 
 int main() {
-	struct Array arr = { { 10, 20, 15, 1, 7 },5 , 10 };
+	struct Array arr = { { 10, 20, 15, 1, 7 }, 5, 10 };
 	display(arr);
 
 }
