@@ -3,8 +3,8 @@
 
 struct Array {
 	int A[20];
-	int length;
 	int size;
+	int length;
 };
 
 int* createArray(int size) {
@@ -13,14 +13,35 @@ int* createArray(int size) {
 
 void display(struct Array arr) {
 	int i;
+	printf("Elements are- ");
 	for (i = 0; i < arr.length; i++) {
-		printf(" %d ", arr.A[i]);
+		printf("%d ", arr.A[i]);
+	}
+}
+
+void append(struct Array *arr, int element) {
+	if (arr->length < arr->size) {
+		arr->A[arr->length++] = element;
+	}
+}
+
+void insert(struct Array *arr,int element, int index){
+	int i;
+	if(index>=0 && index < arr->length){
+		for(i=arr->length;i>index;i--){
+			arr->A[i]=arr->A[i-1];
+		}
+		arr->A[index]=element;
+		arr->length++;
 	}
 }
 
 int main() {
-	struct Array arr = { { 10, 20, 15, 1, 7 }, 5, 10 };
+	struct Array arr = { { 10, 20, 15, 1, 7 }, 20, 5 };
+	append(&arr, 92);
 	display(arr);
-
+	insert(&arr, 94, 0);
+	display(arr);
+	return 0;
 }
 
