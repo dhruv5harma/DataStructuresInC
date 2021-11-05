@@ -2,25 +2,27 @@
 #include<stdlib.h>
 
 struct Array {
-	int *A;
+	int A[20];
 	int length;
 	int size;
 };
 
-int * createArray(int size){
+int* createArray(int size) {
 	return (int*) malloc(size * sizeof(int));
 }
 
-int main() {
+void display(struct Array arr) {
 	int i;
-	struct Array arr;
-	arr.A = createArray(5);
-	printf("Hello");
-	for (i = 0; i < 5; i++) {
-		arr.A[i] = 10 + i;
+	printf("[");
+	for (i = 0; i < arr.length; i++) {
+		printf(" %d ", arr.A[i]);
 	}
-	for (i = 0; i < 5; i++) {
-		printf("\n%d", arr.A[i]);
-	}
+	printf("]");
+}
+
+int main() {
+	struct Array arr = { { 10, 20, 15, 1, 7 },5 , 10 };
+	display(arr);
+
 }
 
