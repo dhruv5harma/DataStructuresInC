@@ -56,9 +56,33 @@ int linearSearch(struct Array arr, int element) {
 	return -1;
 }
 
+void swap(struct Array *arr, int posA, int posB) {
+	int temp;
+	if (posA >= 0 && posB >= 0 && posA < arr->length && posB < arr->length) {
+		temp = arr->A[posA];
+		arr->A[posA] = arr->A[posB];
+		arr->A[posB] = temp;
+	}
+}
+
+int linearSearchImproved(struct Array *arr, int element) {
+	int i;
+	for (i = 0; i < arr->length; i++) {
+		if (arr->A[i] == element) {
+			if (i != 0) {
+				swap(arr, i - 1, i);
+				return i - 1;
+			}
+			return i;
+		}
+	}
+	return -1;
+}
+
 int main() {
 	struct Array arr = { { 10, 20, 15, 1, 7 }, 20, 5 };
-	printf("%d\n", linearSearch(arr, 20));
+	printf("%d\n", linearSearchImproved(&arr, 10));
+	//swap(&arr, 0, 1);
 	display(arr);
 	return 0;
 }
