@@ -65,7 +65,7 @@ void swap(struct Array *arr, int posA, int posB) {
 	}
 }
 
-int linearSearchImproved(struct Array *arr, int element) {
+int linearSearchTransposition(struct Array *arr, int element) {
 	int i;
 	for (i = 0; i < arr->length; i++) {
 		if (arr->A[i] == element) {
@@ -79,10 +79,23 @@ int linearSearchImproved(struct Array *arr, int element) {
 	return -1;
 }
 
+int linearSearchBringToFront(struct Array *arr, int element) {
+	int i;
+	for (i = 0; i < arr->length; i++) {
+		if (arr->A[i] == element) {
+			if (i != 0) {
+				swap(arr, 0, i);
+			}
+			return 0;
+		}
+	}
+	return -1;
+}
+
 int main() {
 	struct Array arr = { { 10, 20, 15, 1, 7 }, 20, 5 };
-	printf("%d\n", linearSearchImproved(&arr, 10));
-	//swap(&arr, 0, 1);
+	printf("%d\n", linearSearchTransposition(&arr, 15));
+	printf("%d\n", linearSearchBringToFront(&arr, 7));
 	display(arr);
 	return 0;
 }
