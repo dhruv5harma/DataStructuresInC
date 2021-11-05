@@ -25,22 +25,30 @@ void append(struct Array *arr, int element) {
 	}
 }
 
-void insert(struct Array *arr,int element, int index){
+void insert(struct Array *arr, int element, int index) {
 	int i;
-	if(index>=0 && index < arr->length){
-		for(i=arr->length;i>index;i--){
-			arr->A[i]=arr->A[i-1];
+	if (index >= 0 && index < arr->length) {
+		for (i = arr->length; i > index; i--) {
+			arr->A[i] = arr->A[i - 1];
 		}
-		arr->A[index]=element;
+		arr->A[index] = element;
 		arr->length++;
+	}
+}
+
+void delete(struct Array *arr,int index){
+	int i;
+	if(index>=0&&index<arr->length){
+		for(i=index;i<arr->length;i++){
+			arr->A[i]=arr->A[i+1];
+		}
+		arr->length--;
 	}
 }
 
 int main() {
 	struct Array arr = { { 10, 20, 15, 1, 7 }, 20, 5 };
-	append(&arr, 92);
-	display(arr);
-	insert(&arr, 94, 0);
+	delete(&arr, 2);
 	display(arr);
 	return 0;
 }
