@@ -36,19 +36,29 @@ void insert(struct Array *arr, int element, int index) {
 	}
 }
 
-void delete(struct Array *arr,int index){
+void delete(struct Array *arr, int index) {
 	int i;
-	if(index>=0&&index<arr->length){
-		for(i=index;i<arr->length;i++){
-			arr->A[i]=arr->A[i+1];
+	if (index >= 0 && index < arr->length) {
+		for (i = index; i < arr->length; i++) {
+			arr->A[i] = arr->A[i + 1];
 		}
 		arr->length--;
 	}
 }
 
+int linearSearch(struct Array arr, int element) {
+	int i;
+	for (i = 0; i < arr.length; i++) {
+		if (arr.A[i] == element) {
+			return i;
+		}
+	}
+	return -1;
+}
+
 int main() {
 	struct Array arr = { { 10, 20, 15, 1, 7 }, 20, 5 };
-	delete(&arr, 2);
+	printf("%d\n", linearSearch(arr, 20));
 	display(arr);
 	return 0;
 }
