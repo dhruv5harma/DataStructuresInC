@@ -110,11 +110,10 @@ int binarySearch(struct Array arr, int element) {
 }
 
 int recursiveBinarySearch(struct Array arr, int l, int h, int element) {
-	int mid=(l + h) / 2;
+	int mid = (l + h) / 2;
 	if (l > h) {
 		return -1;
-	}
-	else if (arr.A[mid] == element) {
+	} else if (arr.A[mid] == element) {
 		return mid;
 	} else if (arr.A[mid] < element) {
 		return recursiveBinarySearch(arr, mid + 1, h, element);
@@ -123,32 +122,42 @@ int recursiveBinarySearch(struct Array arr, int l, int h, int element) {
 	}
 }
 
-int getKeyAtIndex(struct Array arr,int index){
-	if(index >0 && index<arr.length){
+int getKeyAtIndex(struct Array arr, int index) {
+	if (index > 0 && index < arr.length) {
 		return arr.A[index];
 	}
 	return 0;
 }
 
-int setKeyAtIndex(struct Array *arr,int index, int key){
-	if(index >0 && index<arr->length){
-		arr->A[index]=key;
+int setKeyAtIndex(struct Array *arr, int index, int key) {
+	if (index > 0 && index < arr->length) {
+		arr->A[index] = key;
 		return 1;
 	}
 	return 0;
 }
 
-int getAverage(struct Array arr){
-	int i,Average=0;
-	for(i=0;i<arr.length;i++){
-		Average+=arr.A[i];
+int getAverage(struct Array arr) {
+	int i, Average = 0;
+	for (i = 0; i < arr.length; i++) {
+		Average += arr.A[i];
 	}
-	return Average/i;
+	return Average / i;
+}
+
+int getMax(struct Array arr) {
+	int i, max = arr.A[0];
+	for (i = 1; i < arr.length; i++) {
+		if (arr.A[i] > max) {
+			max = arr.A[i];
+		}
+	}
+	return max;
 }
 
 int main() {
-	struct Array arr = { { 10, 20, 30, 40, 50 }, 20, 5 };
-	printf("%d\n", setKeyAtIndex(&arr,1,12));
+	struct Array arr = { { 1000, 120, 30, 40, 50 }, 20, 5 };
+	printf("%d\n", getMax(arr));
 	display(arr);
 	return 0;
 }
