@@ -36,8 +36,20 @@ void toggleCase(char *A) {
 	}
 }
 
+int getvowelCount(char A[]) {
+	int i, count = 0;
+	for (i = 0; A[i] != '\0'; i++) {
+		if (A[i] == 'a' || A[i] == 'e' || A[i] == 'i' || A[i] == 'o'
+				|| A[i] == 'u' || A[i] == 'A' || A[i] == 'E' || A[i] == 'I'
+				|| A[i] == 'O' || A[i] == 'U') {
+			count++;
+		}
+	}
+	return count;
+}
+
 int main() {
-	char A[] = "Test String AaZz";
+	char A[] = "Test String";
 	toggleCase(A);
-	printf("'%s' Length is %d", A, getStringLength(A));
+	printf("'%s' Vowel count is %d", A, getvowelCount(A));
 }
