@@ -165,9 +165,28 @@ int getMin(struct Array arr) {
 	return min;
 }
 
+void reverseArray(struct Array *arr) {
+	int i, j;
+	struct Array arr2;
+	arr2.length = arr->length;
+	for (i = 0, j = arr->length - 1; i < arr2.length; i++, j--) {
+		arr2.A[i] = arr->A[j];
+	}
+	for (i = 0; i < arr2.length; i++) {
+		arr->A[i] = arr2.A[i];
+	}
+}
+
+void reverseArrayImproved(struct Array *arr) {
+	int i, j;
+	for (i = 0, j = arr->length - 1; i < j; i++, j--) {
+		swap(arr, i, j);
+	}
+}
+
 int main() {
 	struct Array arr = { { 1000, 120, 30, 40, 50 }, 20, 5 };
-	printf("%d\n", getMin(arr));
+	reverseArray(&arr);
 	display(arr);
 	return 0;
 }
