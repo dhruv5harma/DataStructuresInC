@@ -184,9 +184,26 @@ void reverseArrayImproved(struct Array *arr) {
 	}
 }
 
+void leftShiftArray(struct Array *arr){
+	int i;
+	for(i=1;i<arr->length;i++){
+		arr->A[i-1]=arr->A[i];
+	}
+	arr->length--;
+}
+
+void rightShiftArray(struct Array *arr){
+	int i;
+	for(i=arr->length-1;i>0;i--){
+		arr->A[i]=arr->A[i-1];
+	}
+	arr->A[0]=0;
+}
+
 int main() {
 	struct Array arr = { { 1000, 120, 30, 40, 50 }, 20, 5 };
-	reverseArray(&arr);
+	//leftShiftArray(&arr);
+	rightShiftArray(&arr);
 	display(arr);
 	return 0;
 }
