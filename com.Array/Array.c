@@ -184,26 +184,35 @@ void reverseArrayImproved(struct Array *arr) {
 	}
 }
 
-void leftShiftArray(struct Array *arr){
+void leftShiftArray(struct Array *arr) {
 	int i;
-	for(i=1;i<arr->length;i++){
-		arr->A[i-1]=arr->A[i];
+	for (i = 1; i < arr->length; i++) {
+		arr->A[i - 1] = arr->A[i];
 	}
 	arr->length--;
 }
 
-void rightShiftArray(struct Array *arr){
+void rightShiftArray(struct Array *arr) {
 	int i;
-	for(i=arr->length-1;i>0;i--){
-		arr->A[i]=arr->A[i-1];
+	for (i = arr->length - 1; i > 0; i--) {
+		arr->A[i] = arr->A[i - 1];
 	}
-	arr->A[0]=0;
+	arr->A[0] = 0;
+}
+
+int checkSortedArray(struct Array arr) {
+	int i;
+	for (i = 0; i < arr.length - 2; i++) {
+		if (arr.A[i] > arr.A[i + 1]) {
+			return 0;
+		}
+	}
+	return 1;
 }
 
 int main() {
-	struct Array arr = { { 1000, 120, 30, 40, 50 }, 20, 5 };
-	//leftShiftArray(&arr);
-	rightShiftArray(&arr);
+	struct Array arr = { { 10, 20, 30, 40, 50 }, 20, 5 };
+	printf("%d\n",checkSortedArray(arr));
 	display(arr);
 	return 0;
 }
