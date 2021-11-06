@@ -123,10 +123,32 @@ int recursiveBinarySearch(struct Array arr, int l, int h, int element) {
 	}
 }
 
+int getKeyAtIndex(struct Array arr,int index){
+	if(index >0 && index<arr.length){
+		return arr.A[index];
+	}
+	return 0;
+}
+
+int setKeyAtIndex(struct Array arr,int index, int key){
+	if(index >0 && index<arr.length){
+		arr.A[index]=key;
+		return 1;
+	}
+	return 0;
+}
+
+int getAverage(struct Array arr){
+	int i,Average=0;
+	for(i=0;i<arr.length;i++){
+		Average+=arr.A[i];
+	}
+	return Average/i;
+}
+
 int main() {
 	struct Array arr = { { 10, 20, 30, 40, 50 }, 20, 5 };
-	printf("%d\n", binarySearch(arr, 50));
-	printf("%d\n", recursiveBinarySearch(arr, 0, arr.length-1, 520));
+	printf("%d\n", getAverage(arr));
 	display(arr);
 	return 0;
 }
