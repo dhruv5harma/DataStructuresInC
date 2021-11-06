@@ -155,9 +155,19 @@ int getMax(struct Array arr) {
 	return max;
 }
 
+int getMin(struct Array arr) {
+	int i, min = arr.A[0];
+	for (i = 1; i < arr.length; i++) {
+		if (arr.A[i] < min) {
+			min = arr.A[i];
+		}
+	}
+	return min;
+}
+
 int main() {
 	struct Array arr = { { 1000, 120, 30, 40, 50 }, 20, 5 };
-	printf("%d\n", getMax(arr));
+	printf("%d\n", getMin(arr));
 	display(arr);
 	return 0;
 }
