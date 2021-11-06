@@ -130,9 +130,9 @@ int getKeyAtIndex(struct Array arr,int index){
 	return 0;
 }
 
-int setKeyAtIndex(struct Array arr,int index, int key){
-	if(index >0 && index<arr.length){
-		arr.A[index]=key;
+int setKeyAtIndex(struct Array *arr,int index, int key){
+	if(index >0 && index<arr->length){
+		arr->A[index]=key;
 		return 1;
 	}
 	return 0;
@@ -148,7 +148,7 @@ int getAverage(struct Array arr){
 
 int main() {
 	struct Array arr = { { 10, 20, 30, 40, 50 }, 20, 5 };
-	printf("%d\n", getAverage(arr));
+	printf("%d\n", setKeyAtIndex(&arr,1,12));
 	display(arr);
 	return 0;
 }
