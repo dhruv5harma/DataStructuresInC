@@ -109,9 +109,24 @@ int binarySearch(struct Array arr, int element) {
 	return -1;
 }
 
+int recursiveBinarySearch(struct Array arr, int l, int h, int element) {
+	int mid=(l + h) / 2;
+	if (l > h) {
+		return -1;
+	}
+	else if (arr.A[mid] == element) {
+		return mid;
+	} else if (arr.A[mid] < element) {
+		return recursiveBinarySearch(arr, mid + 1, h, element);
+	} else {
+		return recursiveBinarySearch(arr, l, mid - 1, element);
+	}
+}
+
 int main() {
 	struct Array arr = { { 10, 20, 30, 40, 50 }, 20, 5 };
-	printf("%d\n", binarySearch(arr, 40));
+	printf("%d\n", binarySearch(arr, 50));
+	printf("%d\n", recursiveBinarySearch(arr, 0, arr.length-1, 520));
 	display(arr);
 	return 0;
 }
