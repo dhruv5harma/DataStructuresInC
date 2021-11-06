@@ -92,10 +92,26 @@ int linearSearchBringToFront(struct Array *arr, int element) {
 	return -1;
 }
 
+int binarySearch(struct Array arr, int element) {
+	int l = 0;
+	int h = arr.length - 1;
+	int mid;
+	while (l <= h) {
+		mid = (l + h) / 2;
+		if (arr.A[mid] == element) {
+			return mid;
+		} else if (arr.A[mid] < element) {
+			l = mid + 1;
+		} else {
+			h = mid - 1;
+		}
+	}
+	return -1;
+}
+
 int main() {
-	struct Array arr = { { 10, 20, 15, 1, 7 }, 20, 5 };
-	printf("%d\n", linearSearchTransposition(&arr, 15));
-	printf("%d\n", linearSearchBringToFront(&arr, 7));
+	struct Array arr = { { 10, 20, 30, 40, 50 }, 20, 5 };
+	printf("%d\n", binarySearch(arr, 40));
 	display(arr);
 	return 0;
 }
