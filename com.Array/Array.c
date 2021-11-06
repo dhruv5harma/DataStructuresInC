@@ -210,10 +210,30 @@ int checkSortedArray(struct Array arr) {
 	return 1;
 }
 
+struct Array mergeSortedArray(struct Array arr1, struct Array arr2) {
+	struct Array arr3;
+	int i = 0, j = 0, k = 0;
+	while (i < arr1.length && j < arr2.length) {
+		if (arr1.A[i] < arr2.A[j]) {
+			arr3.A[k++] = arr1.A[i++];
+		} else {
+			arr3.A[k++] = arr2.A[j++];
+		}
+	}
+	for (; i < arr1.length; i++) {
+		arr3.A[k++] = arr1.A[i];
+	}
+	for (; j < arr2.length; j++) {
+		arr3.A[k++] = arr1.A[j];
+	}
+	arr3.length = k;
+	return arr3;
+}
+
 int main() {
-	struct Array arr = { { 10, 20, 30, 40, 50 }, 20, 5 };
-	printf("%d\n",checkSortedArray(arr));
-	display(arr);
+	struct Array arr1 = { { 10, 20, 30, 40, 50 }, 20, 5 };
+	struct Array arr2 = { { 11, 21, 31, 33, 39 }, 20, 5 };
+	display(mergeSortedArray(arr1, arr2));
 	return 0;
 }
 
