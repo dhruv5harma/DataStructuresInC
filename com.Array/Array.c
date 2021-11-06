@@ -230,10 +230,24 @@ struct Array mergeSortedArray(struct Array arr1, struct Array arr2) {
 	return arr3;
 }
 
+struct Array unionArray(struct Array arr1, struct Array arr2) {
+	struct Array arr3;
+	int i, j, k=0;
+	for(i=0;i<arr1.length;i++){
+		for(j=0;j<arr2.length;j++){
+			if(arr1.A[i]==arr2.A[j]){
+				arr3.A[k++]=arr1.A[i];
+			}
+		}
+	}
+	arr3.length = k;
+	return arr3;
+}
+
 int main() {
-	struct Array arr1 = { { 10, 20, 30, 40, 50 }, 20, 5 };
-	struct Array arr2 = { { 11, 21, 31, 33, 39 }, 20, 5 };
-	display(mergeSortedArray(arr1, arr2));
+	struct Array arr1 = { { 50, 20, 30, 40, 10 }, 20, 5 };
+	struct Array arr2 = { { 50, 20, 10, 33, 39 }, 20, 5 };
+	display(unionArray(arr1, arr2));
 	return 0;
 }
 
