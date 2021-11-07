@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<stdlib.h>
 
 int getStringLength(char A[]) {
 	int i;
@@ -83,8 +84,23 @@ int validateString(char A[]) {
 	return 1;
 }
 
+void revesingAString(char *A) {
+	int i, j, size = getStringLength(A);
+	char *temp;
+	temp = (char*) malloc((size + 1) * sizeof(char));
+	for (i = 0, j = size - 1; A[i] != '\0'; i++, j--) {
+		temp[i] = A[j];
+	}
+	temp[i] = '\0';
+	for (i = 0; temp[i] != '\0'; i++) {
+		A[i] = temp[i];
+	}
+	free(temp);
+}
+
 int main() {
-	char A[] = "Test123 ";
-	toggleCase(A);
+	char A[] = "Test 123";
+	//toggleCase(A);
+	revesingAString(A);
 	printf("'%s'  count is %d", A, validateString(A));
 }
