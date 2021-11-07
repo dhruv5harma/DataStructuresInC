@@ -112,8 +112,18 @@ void revesingAStringImporved(char *A) {
 	}
 }
 
+int checkPallindrome(char *A) {
+	int i, j = getStringLength(A) - 1;
+	for (i = 0; i < j; i++, j--) {
+		if (A[i] != A[j]) {
+			return 0;
+		}
+	}
+	return 1;
+}
+
 int main() {
-	char A[] = "Test123";
+	char A[] = "madam";
 	revesingAStringImporved(A);
-	printf("'%s'  count is %d", A, validateString(A));
+	printf("'%s'  count is %d", A, checkPallindrome(A));
 }
