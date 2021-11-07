@@ -1,0 +1,15 @@
+
+.cproject
+.project
+.settings/language.settings.xml
+Debug/com.Array/Array.d
+Debug/com.Array/Array.o
+Debug/com.Array/subdir.mk
+Debug/DataStructutesInC.exe
+Debug/makefile
+Debug/objects.mk
+Debug/sources.mk
+Debug/DataStructuresInC.exe
+Debug/com.String/String.d
+Debug/com.String/String.o
+Debug/com.String/subdir.mk
