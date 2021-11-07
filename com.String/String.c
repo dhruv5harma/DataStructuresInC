@@ -62,18 +62,29 @@ int getConsonantCount(char A[]) {
 	return count;
 }
 
-int wordCount(char A[]){
-	int i,count=0;
-	for(i=0;A[i]!='\0';i++){
-		if(A[i]==' ' && A[i-1]!=' '){
+int wordCount(char A[]) {
+	int i, count = 0;
+	for (i = 0; A[i] != '\0'; i++) {
+		if (A[i] == ' ' && A[i - 1] != ' ') {
 			count++;
 		}
 	}
-	return count+1;
+	return count + 1;
+}
+
+int validateString(char A[]) {
+	int i;
+	for (i = 0; A[i] != '\0'; i++) {
+		if (!((A[i] >= 'a' && A[i] <= 'z') || (A[i] >= 'A' && A[i] <= 'Z')
+				|| (A[i] >= 48 && A[i] <= 57))) {
+			return 0;
+		}
+	}
+	return 1;
 }
 
 int main() {
-	char A[] = "Test a b  String   a b";
+	char A[] = "Test123 ";
 	toggleCase(A);
-	printf("'%s'  count is %d", A, wordCount(A));
+	printf("'%s'  count is %d", A, validateString(A));
 }
