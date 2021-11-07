@@ -122,21 +122,28 @@ int checkPallindrome(char *A) {
 	return 1;
 }
 
-int checkDuplicates(char A[]) {
+int* createHashTable(int *hashtable, int size) {
 	int i;
-	int hastable[26];
-	for (i = 0; i < 26; i++) {
-		hastable[i] = 0;
+	hashtable = (int*) malloc(size * sizeof(int));
+	for (i = 0; i < size; i++) {
+		hashtable[i] = 0;
+	}
+	return hashtable;
+}
 
-	}
+int checkDuplicates(char A[]) {
+	int i, *hashtable;
+	hashtable = createHashTable(hashtable, 26);
 	for (i = 0; A[i] != '\0'; i++) {
-		hastable[A[i] - 97] += 1;
+		hashtable[A[i] - 97] += 1;
 	}
 	for (i = 0; i < 26; i++) {
-		if (hastable[i] > 1) {
+		if (hashtable[i] > 1) {
+			free(hashtable);
 			return 0;
 		}
 	}
+	free(hashtable);
 	return 1;
 }
 
