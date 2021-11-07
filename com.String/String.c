@@ -122,8 +122,25 @@ int checkPallindrome(char *A) {
 	return 1;
 }
 
+int checkDuplicates(char A[]) {
+	int i;
+	int hastable[26];
+	for (i = 0; i < 26; i++) {
+		hastable[i] = 0;
+
+	}
+	for (i = 0; A[i] != '\0'; i++) {
+		hastable[A[i] - 97] += 1;
+	}
+	for (i = 0; i < 26; i++) {
+		if (hastable[i] > 1) {
+			return 0;
+		}
+	}
+	return 1;
+}
+
 int main() {
-	char A[] = "madam";
-	revesingAStringImporved(A);
-	printf("'%s'  count is %d", A, checkPallindrome(A));
+	char A[] = "mad";
+	printf("'%s'  count is %d", A, checkDuplicates(A));
 }
