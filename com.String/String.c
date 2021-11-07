@@ -98,9 +98,22 @@ void revesingAString(char *A) {
 	free(temp);
 }
 
+void swapcharArray(char *A, int posA, int posB) {
+	char temp;
+	temp = A[posA];
+	A[posA] = A[posB];
+	A[posB] = temp;
+}
+
+void revesingAStringImporved(char *A) {
+	int i, j = getStringLength(A) - 1;
+	for (i = 0; i < j; i++, j--) {
+		swapcharArray(A, i, j);
+	}
+}
+
 int main() {
-	char A[] = "Test 123";
-	//toggleCase(A);
-	revesingAString(A);
+	char A[] = "Test123";
+	revesingAStringImporved(A);
 	printf("'%s'  count is %d", A, validateString(A));
 }
