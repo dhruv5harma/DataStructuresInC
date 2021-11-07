@@ -62,8 +62,18 @@ int getConsonantCount(char A[]) {
 	return count;
 }
 
+int wordCount(char A[]){
+	int i,count=0;
+	for(i=0;A[i]!='\0';i++){
+		if(A[i]==' ' && A[i-1]!=' '){
+			count++;
+		}
+	}
+	return count+1;
+}
+
 int main() {
-	char A[] = "Test String";
+	char A[] = "Test a b  String   a b";
 	toggleCase(A);
-	printf("'%s'  count is %d", A, getConsonantCount(A));
+	printf("'%s'  count is %d", A, wordCount(A));
 }
