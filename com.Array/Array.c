@@ -321,10 +321,33 @@ struct Array differeceOfSortedArray(struct Array arr1, struct Array arr2) {
 	return arr3;
 }
 
+void menuDriver(struct Array arr1, struct Array arr2) {
+	int x;
+	printf("Please choose below options for Set Operations\n");
+	printf("Menu\n1-Union\n2-Intersection\n3-Difference\n4-exit\n");
+	scanf("%d", &x);
+	switch (x) {
+	case 1:
+		display(unionArray(arr1, arr2));
+		break;
+	case 2:
+		display(intersectionArray(arr1, arr2));
+		break;
+	case 3:
+		display(differeceOfArray(arr1, arr2));
+		break;
+	case 4:
+		break;
+	default:
+		printf("Please choose only from above options for Set Operations");
+
+	}
+}
+
 int main() {
 	struct Array arr1 = { { 10, 20, 30, 40, 50, 57 }, 20, 6 };
 	struct Array arr2 = { { 10, 12, 31, 33, 40, 50 }, 20, 6 };
-	display(differeceOfArray(arr1, arr2));
+	menuDriver(arr1, arr2);
 	return 0;
 }
 
