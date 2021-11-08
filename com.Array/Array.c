@@ -323,25 +323,30 @@ struct Array differeceOfSortedArray(struct Array arr1, struct Array arr2) {
 
 void menuDriver(struct Array arr1, struct Array arr2) {
 	int x;
+
 	printf("Please choose below options for Set Operations\n");
 	printf("Menu\n1-Union\n2-Intersection\n3-Difference\n4-exit\n");
-	scanf("%d", &x);
-	switch (x) {
-	case 1:
-		display(unionArray(arr1, arr2));
-		break;
-	case 2:
-		display(intersectionArray(arr1, arr2));
-		break;
-	case 3:
-		display(differeceOfArray(arr1, arr2));
-		break;
-	case 4:
-		break;
-	default:
-		printf("Please choose only from above options for Set Operations");
 
-	}
+	do {
+		fflush( stdout);
+		scanf("%d", &x);
+		switch (x) {
+		case 1:
+			display(unionArray(arr1, arr2));
+			break;
+		case 2:
+			display(intersectionArray(arr1, arr2));
+			break;
+		case 3:
+			display(differeceOfArray(arr1, arr2));
+			break;
+		case 4:
+			break;
+		default:
+			printf("Please choose only from above options for Set Operations");
+
+		}
+	} while (x < 4);
 }
 
 int main() {
