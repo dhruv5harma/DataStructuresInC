@@ -287,10 +287,27 @@ struct Array unionOfSortedArrays(struct Array arr1, struct Array arr2) {
 	return arr3;
 }
 
+struct Array differeceOfArray(struct Array arr1, struct Array arr2){
+	struct Array arr3;
+	int i,j;
+	arr3.length=0;
+	for(i=0;i<arr1.length;i++){
+		for(j=0;j<arr2.length;j++){
+			if(arr1.A[i]==arr2.A[j]){
+				break;
+			}
+		}
+		if(j==arr2.length){
+			arr3.A[arr3.length++]=arr1.A[i];
+		}
+	}
+	return arr3;
+}
+
 int main() {
 	struct Array arr1 = { { 10, 20, 30, 40, 50, 57 }, 20, 6 };
 	struct Array arr2 = { { 10, 12, 31, 33, 40, 50 }, 20, 6 };
-	display(intersectionArray(arr1, arr2));
+	display(differeceOfArray(arr1, arr2));
 	return 0;
 }
 
