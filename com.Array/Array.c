@@ -244,10 +244,30 @@ struct Array diffArray(struct Array arr1, struct Array arr2) {
 	return arr3;
 }
 
+struct Array unionArray(struct Array arr1, struct Array arr2) {
+	struct Array arr3;
+	int i, j, k = 0;
+	for (i = 0; i < arr1.length; i++) {
+		arr3.A[k++] = arr1.A[i];
+	}
+	for (i = 0; i < arr2.length; i++) {
+		for (j = 0; j < k; j++) {
+			if (arr2.A[i] == arr3.A[j]) {
+				break;
+			}
+		}
+		if (j == k) {
+			arr3.A[k++] = arr2.A[i];
+		}
+	}
+	arr3.length = k;
+	return arr3;
+}
+
 int main() {
-	struct Array arr1 = { { 50, 20, 30, 40, 10 }, 20, 5 };
-	struct Array arr2 = { { 50, 20, 10, 33, 39 }, 20, 5 };
-	display(diffArray(arr1, arr2));
+	struct Array arr1 = { { 50, 20, 30, 40, 10, 17 }, 20, 6 };
+	struct Array arr2 = { { 50, 20, 10, 33, 17, 39 }, 20, 6 };
+	display(unionArray(arr1, arr2));
 	return 0;
 }
 
