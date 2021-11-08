@@ -123,7 +123,7 @@ int checkPallindrome(char *A) {
 }
 
 int* createHashTable(int size) {
-	int i,*hashtable;
+	int i, *hashtable;
 	hashtable = (int*) malloc(size * sizeof(int));
 	for (i = 0; i < size; i++) {
 		hashtable[i] = 0;
@@ -146,7 +146,26 @@ int checkDuplicates(char A[]) {
 	return 1;
 }
 
+int checkAnagrams(char A[], char B[]) {
+	int i, *hashtable = createHashTable(26);
+	if (getStringLength(A) == getStringLength(B)) {
+		for (i = 0; A[i] != '\0'; i++) {
+			hashtable[A[i] - 97] += 1;
+		}
+		for (i = 0; B[i] != '\0'; i++) {
+			hashtable[B[i] - 97] -= 1;
+			if (hashtable[B[i] - 97] < 0) {
+				return -1;
+			}
+		}
+		return 1;
+	} else {
+		return 0;
+	}
+}
+
 int main() {
-	char A[] = "mad";
-	printf("'%s'  count is %d", A, checkDuplicates(A));
+	char A[] = "medical";
+	char B[] = "decimal";
+	printf("'%s' and '%s' is %d", A,B, checkAnagrams(A,B));
 }
