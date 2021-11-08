@@ -230,7 +230,7 @@ struct Array mergeSortedArray(struct Array arr1, struct Array arr2) {
 	return arr3;
 }
 
-struct Array diffArray(struct Array arr1, struct Array arr2) {
+struct Array intersectionArray(struct Array arr1, struct Array arr2) {
 	struct Array arr3;
 	int i, j, k = 0;
 	for (i = 0; i < arr1.length; i++) {
@@ -290,7 +290,7 @@ struct Array unionOfSortedArrays(struct Array arr1, struct Array arr2) {
 int main() {
 	struct Array arr1 = { { 10, 20, 30, 40, 50, 57 }, 20, 6 };
 	struct Array arr2 = { { 10, 12, 31, 33, 40, 50 }, 20, 6 };
-	display(unionOfSortedArrays(arr1, arr2));
+	display(intersectionArray(arr1, arr2));
 	return 0;
 }
 
