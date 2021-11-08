@@ -266,7 +266,7 @@ struct Array unionArray(struct Array arr1, struct Array arr2) {
 
 struct Array unionOfSortedArrays(struct Array arr1, struct Array arr2) {
 	struct Array arr3;
-	int i=0, j=0, k = 0;
+	int i = 0, j = 0, k = 0;
 	while (i < arr1.length && j < arr2.length) {
 		if (arr1.A[i] < arr2.A[j]) {
 			arr3.A[k++] = arr1.A[i++];
@@ -287,18 +287,35 @@ struct Array unionOfSortedArrays(struct Array arr1, struct Array arr2) {
 	return arr3;
 }
 
-struct Array differeceOfArray(struct Array arr1, struct Array arr2){
+struct Array differeceOfArray(struct Array arr1, struct Array arr2) {
 	struct Array arr3;
-	int i,j;
-	arr3.length=0;
-	for(i=0;i<arr1.length;i++){
-		for(j=0;j<arr2.length;j++){
-			if(arr1.A[i]==arr2.A[j]){
+	int i, j;
+	arr3.length = 0;
+	for (i = 0; i < arr1.length; i++) {
+		for (j = 0; j < arr2.length; j++) {
+			if (arr1.A[i] == arr2.A[j]) {
 				break;
 			}
 		}
-		if(j==arr2.length){
-			arr3.A[arr3.length++]=arr1.A[i];
+		if (j == arr2.length) {
+			arr3.A[arr3.length++] = arr1.A[i];
+		}
+	}
+	return arr3;
+}
+
+struct Array differeceOfSortedArray(struct Array arr1, struct Array arr2) {
+	struct Array arr3;
+	int i = 0, j = 0;
+	arr3.length = 0;
+	while (i < arr1.length) {
+		if (arr1.A[i] < arr2.A[j]) {
+			arr3.A[arr3.length++] = arr1.A[i++];
+		} else if (arr1.A[i] > arr2.A[j]) {
+			j++;
+		} else {
+			i++;
+			j++;
 		}
 	}
 	return arr3;
