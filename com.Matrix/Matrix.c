@@ -13,6 +13,14 @@ void setDiagonalMatrix(struct Matrix *m, int i, int j, int element) {
 	m->n = i;
 }
 
+int getDiagonalMatrix(struct Matrix m, int i, int j) {
+	if (i == j) {
+		return m.A[i - 1];
+	} else {
+		return 0;
+	}
+}
+
 void main() {
 
 }
