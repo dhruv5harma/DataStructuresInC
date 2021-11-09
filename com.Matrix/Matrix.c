@@ -10,7 +10,6 @@ void setDiagonalMatrix(struct Matrix *m, int i, int j, int element) {
 	if (i == j) {
 		m->A[i - 1] = element;
 	}
-	m->n = i;
 }
 
 int getDiagonalMatrix(struct Matrix m, int i, int j) {
@@ -21,6 +20,17 @@ int getDiagonalMatrix(struct Matrix m, int i, int j) {
 	}
 }
 
-void main() {
+void DisplayDiagonalMatrix(struct Matrix m) {
+	int i, j;
+	for (i = 0; i < m.n; i++) {
+		for (j = 0; j < m.n; j++) {
+			printf("%d ", getDiagonalMatrix(m, i + 1, j + 1));
+		}
+		printf("\n");
+	}
+}
+
+int main() {
+
 
 }
