@@ -6,5 +6,13 @@ struct Matrix {
 	int n;
 };
 
+void setDiagonalMatrix(struct Matrix *m, int i, int j, int element) {
+	if (i == j) {
+		m->A[i - 1] = element;
+	}
+	m->n = i;
+}
+
 void main() {
+
 }
