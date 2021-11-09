@@ -32,5 +32,13 @@ void DisplayDiagonalMatrix(struct Matrix m) {
 
 int main() {
 
+	struct Matrix m1;
+	m1.n = 4;
+	setDiagonalMatrix(&m1, 1, 1, 10);
+	setDiagonalMatrix(&m1, 2, 2, 20);
+	setDiagonalMatrix(&m1, 3, 3, 30);
+	setDiagonalMatrix(&m1, 4, 4, 40);
+	DisplayDiagonalMatrix(m1);
 
+	return 0;
 }
