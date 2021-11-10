@@ -36,6 +36,14 @@ void setLowerTrigonalMatrix(struct Matrix *m, int i, int j, int element) {
 	}
 }
 
+int getLowerTrigonalMatrix(struct Matrix m, int i, int j) {
+	if (i >= j) {
+		return m.A[((i*(i-1))/2)+j-1];
+	} else {
+		return 0;
+	}
+}
+
 int main() {
 
 	struct Matrix m1;
