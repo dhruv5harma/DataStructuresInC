@@ -30,6 +30,12 @@ void DisplayDiagonalMatrix(struct Matrix m) {
 	}
 }
 
+void setLowerTrigonalMatrix(struct Matrix *m, int i, int j, int element) {
+	if (i >= j) {
+		m->A[((i*(i-1))/2)+j-1] = element;
+	}
+}
+
 int main() {
 
 	struct Matrix m1;
