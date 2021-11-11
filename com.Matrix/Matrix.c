@@ -68,6 +68,16 @@ int getUpperTrianguarMatrix(struct Matrix m, int i, int j) {
 	}
 }
 
+void DisplayUpperTrianguarMatrix(struct Matrix m) {
+	int i, j;
+	for (i = 0; i < m.n; i++) {
+		for (j = 0; j < m.n; j++) {
+			printf("%d ", getUpperTrianguarMatrix(m, i + 1, j + 1));
+		}
+		printf("\n");
+	}
+}
+
 int main() {
 
 	struct Matrix m1;
