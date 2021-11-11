@@ -60,6 +60,13 @@ void setUpperTrianguarMatrix(struct Matrix *m, int i, int j, int element) {
 	}
 }
 
+int getUpperTrianguarMatrix(struct Matrix m, int i, int j) {
+	if (i <= j) {
+		return m.A[((j * (j - 1)) / 2) + i - 1];
+	} else {
+		return 0;
+	}
+}
 
 int main() {
 
