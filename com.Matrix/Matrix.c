@@ -54,22 +54,29 @@ void DisplayLowerTrianguarMatrix(struct Matrix m) {
 	}
 }
 
+void setUpperTrianguarMatrix(struct Matrix *m, int i, int j, int element) {
+	if (i <= j) {
+		m->A[((j * (j - 1)) / 2) + i - 1] = element;
+	}
+}
+
+
 int main() {
 
 	struct Matrix m1;
 	m1.n = 4;
-	setLowerTrianguarMatrix(&m1, 1, 1, 1);
-	setLowerTrianguarMatrix(&m1, 2, 1, 2);
-	setLowerTrianguarMatrix(&m1, 2, 2, 3);
-	setLowerTrianguarMatrix(&m1, 3, 1, 4);
-	setLowerTrianguarMatrix(&m1, 3, 2, 5);
-	setLowerTrianguarMatrix(&m1, 3, 3, 6);
-	setLowerTrianguarMatrix(&m1, 4, 1, 7);
-	setLowerTrianguarMatrix(&m1, 4, 2, 5);
-	setLowerTrianguarMatrix(&m1, 4, 3, 6);
-	setLowerTrianguarMatrix(&m1, 4, 4, 6);
+	setUpperTrianguarMatrix(&m1, 1, 1, 1);
+	setUpperTrianguarMatrix(&m1, 1, 2, 2);
+	setUpperTrianguarMatrix(&m1, 1, 3, 3);
+	setUpperTrianguarMatrix(&m1, 1, 4, 4);
+	setUpperTrianguarMatrix(&m1, 2, 2, 5);
+	setUpperTrianguarMatrix(&m1, 2, 3, 6);
+	setUpperTrianguarMatrix(&m1, 2, 4, 7);
+	setUpperTrianguarMatrix(&m1, 3, 3, 5);
+	setUpperTrianguarMatrix(&m1, 3, 4, 6);
+	setUpperTrianguarMatrix(&m1, 4, 4, 6);
 	//setDiagonalMatrix(&m1, 4, 4, 40);
-	DisplayLowerTrianguarMatrix(m1);
+	DisplayUpperTrianguarMatrix(m1);
 
 	return 0;
 }
