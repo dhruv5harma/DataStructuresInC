@@ -57,13 +57,13 @@ void DisplayLowerTrianguarMatrix(struct Matrix m) {
 void setLowerTrianguarColumnMajorMatrix(struct Matrix *m, int i, int j,
 		int element) {
 	if (i >= j) {
-		m->A[j * (1 - j * (j - 1) / 2) + (i - j)] = element;
+		m->A[(m->n*(j-1)-(j-1)*(j-2)/2)+(i-j)] = element;
 	}
 }
 
 int getLowerTrianguarColumnMajorMatrix(struct Matrix m, int i, int j) {
 	if (i >= j) {
-		return m.A[j * (1 - j * (j - 1) / 2) + (i - j)];
+		return m.A[(m.n*(j-1)-(j-1)*(j-2)/2)+(i-j)];
 	} else {
 		return 0;
 	}
@@ -73,7 +73,7 @@ void DisplayLowerTrianguarColumnMajorMatrix(struct Matrix m) {
 	int i, j;
 	for (i = 0; i < m.n; i++) {
 		for (j = 0; j < m.n; j++) {
-			printf("%d ", getLowerTrianguarColumnMajorMatrix(m, i + 1, j + 1));
+			printf("%d\t\t", getLowerTrianguarColumnMajorMatrix(m, i + 1, j + 1));
 		}
 		printf("\n");
 	}
