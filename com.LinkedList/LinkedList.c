@@ -29,9 +29,32 @@ void Display(struct Node *p) {
 	}
 }
 
+struct Node * LinearSearch(struct Node *p,int key){
+	p=first;
+	while(p){
+		if(p->data==key){
+			return p;
+		}
+		p=p->next;
+	}
+	return 0;
+}
+
+int min(struct Node *p){
+	int minElement=INT_MAX;
+	while(p){
+		if(p->data<minElement){
+			minElement=p->data;
+		}
+	}
+	return minElement;
+}
+
 int main() {
 	int A[]={1,2,3,4,5,6};
 	Create(A,6);
 	Display(first);
+	struct Node *p=LinearSearch(first,7);
+	printf("Min Element is %d %d",min(first),p->data);
 	return 0;
 }
