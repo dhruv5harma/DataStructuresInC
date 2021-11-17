@@ -46,15 +46,29 @@ int min(struct Node *p){
 		if(p->data<minElement){
 			minElement=p->data;
 		}
+		p=p->next;
 	}
 	return minElement;
 }
 
+int max(struct Node *p){
+	int maxElement=INT_MIN;
+	while(p){
+		if(p->data>maxElement){
+			maxElement=p->data;
+		}
+		p=p->next;
+	}
+	return maxElement;
+}
+
 int main() {
-	int A[]={1,2,3,4,5,6};
+	int A[]={8,2,3,4,5,6};
 	Create(A,6);
-	Display(first);
-	struct Node *p=LinearSearch(first,7);
-	printf("Min Element is %d %d",min(first),p->data);
+	//Display(first);
+	//struct Node *p=LinearSearch(first,6);
+	//printf("\n%d",p->data);
+	printf("\nMin Element is %d",min(first));
+	printf("\nMax Element is %d",max(first));
 	return 0;
 }
