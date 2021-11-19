@@ -69,6 +69,13 @@ void DisplayRecursive(struct Node *p) {
 	}
 }
 
+void DisplayReverseRecursive(struct Node *p) {
+	if (p) {
+		DisplayRecursive(p->next);
+		printf("%d ", p->data);
+	}
+}
+
 int main() {
 	int A[] = { 8, 2, 3, 4, 5, 6 };
 	Create(A, 6);
@@ -77,6 +84,6 @@ int main() {
 	//printf("\n%d",p->data);
 	/*printf("\nMin Element is %d",min(first));
 	 printf("\nMax Element is %d",max(first));*/
-	DisplayRecursive(first);
+	DisplayReverseRecursive(first);
 	return 0;
 }
