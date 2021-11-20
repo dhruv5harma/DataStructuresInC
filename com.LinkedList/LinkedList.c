@@ -85,6 +85,15 @@ int ElementsCount(struct Node *p) {
 	return count;
 }
 
+int ElementsSum(struct Node *p) {
+	int sum = 0;
+	while (p) {
+		sum+=p->data;
+		p = p->next;
+	}
+	return sum;
+}
+
 int main() {
 	int A[] = { 8, 2, 3, 4, 5, 6 };
 	Create(A, 6);
@@ -94,6 +103,7 @@ int main() {
 	/*printf("\nMin Element is %d",min(first));
 	 printf("\nMax Element is %d",max(first));*/
 	//DisplayReverseRecursive(first);
-	printf("Count of Elements in Linked List is " + ElementsCount(first));
+	//printf("Count of Elements in Linked List is " + ElementsCount(first));
+	printf("Sum of Elements in Linked List is " + ElementsSum(first));
 	return 0;
 }
