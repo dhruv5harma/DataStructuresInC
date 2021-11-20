@@ -94,16 +94,32 @@ int ElementsSum(struct Node *p) {
 	return sum;
 }
 
+void LmprovedLinearsearch(struct Node *p,int key){
+	struct Node *q=NULL;
+	while(p){
+		if(p->data==key){
+			q->next=p->next;
+			p->next=first;
+			first=p;
+		}
+		q=p;
+		p=p->next;
+	}
+}
+
 int main() {
 	int A[] = { 8, 2, 3, 4, 5, 6 };
 	Create(A, 6);
-	//Display(first);
+	Display(first);
 	//struct Node *p=LinearSearch(first,6);
 	//printf("\n%d",p->data);
 	//printf("\nMin Element is %d",min(first));
 	// printf("\nMax Element is %d",max(first));
 	//DisplayReverseRecursive(first);
-	printf("Count of Elements in Linked List is %d" , ElementsCount(first));
-	printf("\nSum of Elements in Linked List is %d" , ElementsSum(first));
+	//printf("Count of Elements in Linked List is %d" , ElementsCount(first));
+	//printf("\nSum of Elements in Linked List is %d" , ElementsSum(first));
+	printf("\n");
+	LmprovedLinearsearch(first,5);
+	Display(first);
 	return 0;
 }
