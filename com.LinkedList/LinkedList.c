@@ -100,10 +100,10 @@ int main() {
 	//Display(first);
 	//struct Node *p=LinearSearch(first,6);
 	//printf("\n%d",p->data);
-	/*printf("\nMin Element is %d",min(first));
-	 printf("\nMax Element is %d",max(first));*/
+	//printf("\nMin Element is %d",min(first));
+	// printf("\nMax Element is %d",max(first));
 	//DisplayReverseRecursive(first);
-	//printf("Count of Elements in Linked List is " + ElementsCount(first));
-	printf("Sum of Elements in Linked List is " + ElementsSum(first));
+	printf("Count of Elements in Linked List is %d" , ElementsCount(first));
+	printf("\nSum of Elements in Linked List is %d" , ElementsSum(first));
 	return 0;
 }
