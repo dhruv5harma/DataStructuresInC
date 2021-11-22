@@ -107,19 +107,24 @@ void ImprovedLinearsearch(struct Node *p, int key) {
 	}
 }
 
-void InsertElement(struct Node *p, int position, int data){
-	struct Node *q=NULL;
+void InsertElement(struct Node *p, int position, int data) {
+	struct Node *q = NULL;
 	struct Node *node;
-	int count=1;
-	while(position-count>0){
-		q=p;
-		p=p->next;
-		count++;
+	int count = 1;
+	node = (struct Node*) malloc(sizeof(struct Node));
+	node->data = data;
+	if (position == 1) {
+		node->next = first;
+		first = node;
+	} else {
+		while (position - count > 0) {
+			q = p;
+			p = p->next;
+			count++;
+		}
+		q->next = node;
+		node->next = p;
 	}
-	node=(struct Node *)malloc(sizeof(struct Node));
-	q->next=node;
-	node->data=data;
-	node->next=p;
 }
 
 int main() {
@@ -135,7 +140,7 @@ int main() {
 	//printf("\nSum of Elements in Linked List is %d" , ElementsSum(first));
 	printf("\n");
 	//ImprovedLinearsearch(first,5);
-	InsertElement(first,3,12);
+	InsertElement(first, 3, 12);
 	Display(first);
 	return 0;
 }
