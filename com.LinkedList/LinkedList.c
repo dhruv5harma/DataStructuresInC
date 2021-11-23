@@ -127,6 +127,16 @@ void InsertElement(struct Node *p, int position, int data) {
 	}
 }
 
+//This method won't delete the tail node
+void DeleteNode(struct Node *p){
+	if(p==first){
+		first=p->next;
+	}else{
+		p->data=p->next->data;
+		p->next=p->next->next;
+	}
+}
+
 int main() {
 	int A[] = { 8, 2, 3, 4, 5, 6 };
 	Create(A, 6);
@@ -140,7 +150,7 @@ int main() {
 	//printf("\nSum of Elements in Linked List is %d" , ElementsSum(first));
 	printf("\n");
 	//ImprovedLinearsearch(first,5);
-	InsertElement(first, 3, 12);
+	DeleteNode(first->next->next);
 	Display(first);
 	return 0;
 }
