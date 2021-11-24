@@ -128,17 +128,36 @@ void InsertElement(struct Node *p, int position, int data) {
 }
 
 //This method won't delete the tail node
-void DeleteNode(struct Node *p){
-	if(p==first){
-		first=p->next;
-	}else{
-		p->data=p->next->data;
-		p->next=p->next->next;
+void DeleteNode(struct Node *p) {
+	if (p == first) {
+		first = p->next;
+	} else {
+		p->data = p->next->data;
+		p->next = p->next->next;
+	}
+}
+
+void InsertInSortedLinkedList(struct Node *p, int data) {
+	struct Node *temp;
+	temp = (struct Node*) malloc(sizeof(struct Node));
+	temp->data = data;
+	if (data < p->data) {
+		temp->next = p;
+		first = temp;
+	} else {
+		while (p->next != NULL) {
+			if (p->next->data > data) {
+				temp->next = p->next;
+				p->next = temp;
+				break;
+			}
+			p = p->next;
+		}
 	}
 }
 
 int main() {
-	int A[] = { 8, 2, 3, 4, 5, 6 };
+	int A[] = { 1, 2, 3, 5, 6, 7 };
 	Create(A, 6);
 	Display(first);
 	//struct Node *p=LinearSearch(first,6);
@@ -150,7 +169,8 @@ int main() {
 	//printf("\nSum of Elements in Linked List is %d" , ElementsSum(first));
 	printf("\n");
 	//ImprovedLinearsearch(first,5);
-	DeleteNode(first->next->next);
+	//DeleteNode(first->next->next);
+	InsertInSortedLinkedList(first, 4);
 	Display(first);
 	return 0;
 }
