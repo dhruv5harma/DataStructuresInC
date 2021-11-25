@@ -156,6 +156,28 @@ void InsertInSortedLinkedList(struct Node *p, int data) {
 	}
 }
 
+void SortedInserted(struct Node *p, int x) {
+	struct Node *t, *q = NULL;
+	t = (struct Node*) malloc(sizeof(struct Node));
+	t->data = x;
+	t->next = NULL;
+	if (first == NULL) {
+		first = t;
+	} else {
+		while (p && p->data < x) {
+			q = p;
+			p = p->next;
+		}
+		if (p == first) {
+			t->next = p;
+			first = t;
+		} else {
+			t->next = q->next;
+			q->next = t;
+		}
+	}
+}
+
 int main() {
 	int A[] = { 1, 2, 3, 5, 6, 7 };
 	Create(A, 6);
@@ -170,7 +192,7 @@ int main() {
 	printf("\n");
 	//ImprovedLinearsearch(first,5);
 	//DeleteNode(first->next->next);
-	InsertInSortedLinkedList(first, 4);
+	SortedInserted(first, 8);
 	Display(first);
 	return 0;
 }
