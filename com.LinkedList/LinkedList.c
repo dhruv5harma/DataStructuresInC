@@ -194,6 +194,7 @@ int main() {
 	//DeleteNode(first->next->next);
 	SortedInserted(first, 8);
         SortedInserted(first, 8);
+        SortedInserted(first, 8);
 	Display(first);
 	return 0;
 }
