@@ -178,8 +178,20 @@ void SortedInserted(struct Node *p, int x) {
 	}
 }
 
+int checkSortedLinkedList(struct Node *p) {
+	int temp = INT_MIN;
+	while (p) {
+		if (temp > p->data) {
+			return -1;
+		}
+		temp = p->data;
+		p = p->next;
+	}
+	return 1;
+}
+
 int main() {
-	int A[] = { 1, 2, 3, 5, 6, 7 };
+	int A[] = { 1, 2, 3, 5, 8, 7 };
 	Create(A, 6);
 	Display(first);
 	//struct Node *p=LinearSearch(first,6);
@@ -192,9 +204,8 @@ int main() {
 	printf("\n");
 	//ImprovedLinearsearch(first,5);
 	//DeleteNode(first->next->next);
-	SortedInserted(first, 8);
-        SortedInserted(first, 8);
-        SortedInserted(first, 8);
+	//SortedInserted(first, 8);
+	printf("Check Sorted Linked List %d", checkSortedLinkedList(first));
 	Display(first);
 	return 0;
 }
