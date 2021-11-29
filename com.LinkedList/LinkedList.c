@@ -190,8 +190,22 @@ int checkSortedLinkedList(struct Node *p) {
 	return 1;
 }
 
+void RemoveDublicateFromSortedLinkedList() {
+	struct Node *p = first, *q = first->next;
+	while (q) {
+		if (p->data != q->data) {
+			p = q;
+			q = q->next;
+		} else {
+			p->next = q->next;
+			free(q);
+			q = p->next;
+		}
+	}
+}
+
 int main() {
-	int A[] = { 1, 2, 3, 5, 8, 7 };
+	int A[] = { 1, 1, 3, 3, 3, 7 };
 	Create(A, 6);
 	Display(first);
 	//struct Node *p=LinearSearch(first,6);
@@ -205,7 +219,8 @@ int main() {
 	//ImprovedLinearsearch(first,5);
 	//DeleteNode(first->next->next);
 	//SortedInserted(first, 8);
-	printf("Check Sorted Linked List %d", checkSortedLinkedList(first));
+	//printf("Check Sorted Linked List %d", checkSortedLinkedList(first));
+	RemoveDublicateFromSortedLinkedList();
 	Display(first);
 	return 0;
 }
