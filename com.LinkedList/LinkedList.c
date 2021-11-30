@@ -221,6 +221,7 @@ int main() {
 	//SortedInserted(first, 8);
 	//printf("Check Sorted Linked List %d", checkSortedLinkedList(first));
 	RemoveDublicateFromSortedLinkedList();
+	RemoveDublicateFromSortedLinkedList();
 	Display(first);
 	return 0;
 }
