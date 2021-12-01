@@ -204,6 +204,16 @@ void RemoveDublicateFromSortedLinkedList() {
 	}
 }
 
+void ReverseingLinkedList(){
+	struct Node *p=first,*q=first;
+	while(first){
+		first=first->next;
+		p=first->next;
+
+
+	}
+}
+
 int main() {
 	int A[] = { 1, 1, 3, 3, 3, 7 };
 	Create(A, 6);
