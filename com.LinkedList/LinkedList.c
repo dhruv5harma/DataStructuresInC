@@ -204,18 +204,28 @@ void RemoveDublicateFromSortedLinkedList() {
 	}
 }
 
-void ReverseingLinkedList(){
-	struct Node *p=first,*q;
-	while(first){
-		first=first->next;
-		p=first->next;
+void ReverseingLinkedList() {
+	struct Node *p = first, *q = NULL, *r = NULL;
+	while (p) {
+		r = q;
+		q = p;
+		p = p->next;
+		q->next = r;
+	}
+	first = q;
+}
 
-
+void RecursiveReverseLinkedList(struct Node *q, struct Node *p) {
+	if (p) {
+		RecursiveReverseLinkedList(p, p->next);
+		p->next = q;
+	} else {
+		first = q;
 	}
 }
 
 int main() {
-	int A[] = { 1, 1, 3, 3, 3, 7 };
+	int A[] = { 1, 2, 3, 5, 6, 7 };
 	Create(A, 6);
 	Display(first);
 	//struct Node *p=LinearSearch(first,6);
@@ -230,8 +240,9 @@ int main() {
 	//DeleteNode(first->next->next);
 	//SortedInserted(first, 8);
 	//printf("Check Sorted Linked List %d", checkSortedLinkedList(first));
-	RemoveDublicateFromSortedLinkedList();
-	RemoveDublicateFromSortedLinkedList();
+	//RemoveDublicateFromSortedLinkedList();
+	//ReverseingLinkedList();
+	RecursiveReverseLinkedList(NULL,first);
 	Display(first);
 	return 0;
 }
