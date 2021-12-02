@@ -205,7 +205,7 @@ void RemoveDublicateFromSortedLinkedList() {
 }
 
 void ReverseingLinkedList(){
-	struct Node *p=first,*q=first;
+	struct Node *p=first,*q;
 	while(first){
 		first=first->next;
 		p=first->next;
