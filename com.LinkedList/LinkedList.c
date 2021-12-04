@@ -244,5 +244,6 @@ int main() {
 	//ReverseingLinkedList();
 	RecursiveReverseLinkedList(NULL,first);
 	Display(first);
+Display(first);
 	return 0;
 }
