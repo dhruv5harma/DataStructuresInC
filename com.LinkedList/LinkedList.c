@@ -223,11 +223,21 @@ void RecursiveReverseLinkedList(struct Node *q, struct Node *p) {
 		first = q;
 	}
 }
+void concatLinkedList(struct Node *p, struct Node *q) {
+	while (p->next) {
+		p = p->next;
+	}
+	p->next = q;
+}
 
 int main() {
 	int A[] = { 1, 2, 3, 5, 6, 7 };
+	int B[] = { 1, 2, 3, 7, 6, 7 };
+	Create(B, 6);
+	struct Node *second = first;
 	Create(A, 6);
-	Display(first);
+	/*Display(second);
+	 Display(first);*/
 	//struct Node *p=LinearSearch(first,6);
 	//printf("\n%d",p->data);
 	//printf("\nMin Element is %d",min(first));
@@ -242,7 +252,8 @@ int main() {
 	//printf("Check Sorted Linked List %d", checkSortedLinkedList(first));
 	//RemoveDublicateFromSortedLinkedList();
 	//ReverseingLinkedList();
-	RecursiveReverseLinkedList(NULL,first);
+	//RecursiveReverseLinkedList(NULL,first);
+	concatLinkedList(first, second);
 	Display(first);
 	return 0;
 }
