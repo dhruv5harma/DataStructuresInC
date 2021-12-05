@@ -254,6 +254,7 @@ int main() {
 	//ReverseingLinkedList();
 	//RecursiveReverseLinkedList(NULL,first);
 	concatLinkedList(first, second);
+	concatLinkedList(first, first);
 	Display(first);
 	return 0;
 }
